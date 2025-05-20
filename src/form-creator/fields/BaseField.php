@@ -28,7 +28,7 @@ class BaseField
     public function setConfiguration($fieldConfig)
     {
         $this->required = $fieldConfig["required"] ? "required" : "";
-        $this->classNames = $fieldConfig["class"] ? $fieldConfig["class"] : "";
+        $this->className = $fieldConfig["class"] ? $fieldConfig["class"] : "";
     }
 
     /**

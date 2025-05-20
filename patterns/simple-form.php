@@ -18,7 +18,7 @@
          "action" => "/wp-json/testform/v1/",
      ]);
  
-     $formBuilder->addTextField("name", "Imię", ["required"=> true]);
+     $formBuilder->addTextField("name", "Imię", ["required"=> true,"class"=> "simple-form__name"]);
      $formBuilder->addEmailField("email", "Email", ["required"=> true]);
      $formBuilder->addTextareaField("description", "Opis", ["required"=> true]);
      $form = $formBuilder->build();
