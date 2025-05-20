@@ -1,0 +1,132 @@
+{
+	"version": 2,
+	"settings": {
+	  "color": {
+		"palette": [
+		]
+	  },
+	  "typography": {
+		"fontFamilies": [
+		  {
+			"name": "Inter",
+			"slug": "inter",
+			"fontFamily": "Inter, sans-serif"
+		  }
+		],
+		"fontSizes": [
+		  {
+			"name": "H1 Size",
+			"slug": "h1-size",
+			"size": "32pt"
+		  },
+		  {
+			"name": "H2 Size",
+			"slug": "h2-size",
+			"size": "28pt"
+		  },
+		  {
+			"name": "Text Size",
+			"slug": "text-size",
+			"size": "16pt"
+		  },
+		  {
+			"name": "Drop Cap Size",
+			"slug": "drop-cap-size",
+			"size": "32pt"
+		  }
+		]
+	  },
+	  "layout": {
+		"contentSize": "100%",
+		"wideSize": "100%",
+		"padding": {
+			"left": "0px",
+			"right": "0px"
+      	}
+	  }
+	},
+	"styles": {
+	  "css": "body { background-color: var(--wp--preset--color--main-bg); }\n.wp-site-blocks { max-width: 100%; padding: 0; }\n.wp-block-group.has-background { margin: 0px 0px; }\n.wp-block-post-content > *:not(.alignfull) { margin-left: 40px; margin-right: 40px; }\n.wp-block-post-content > *:not(.alignfull):first-child { margin-top: 59px; }\n.wp-block-post-content > *:not(.alignfull):last-child { margin-bottom: 59px; }\n.text-panel::before { content: '❤'; color: white; margin-right: 16px; font-size: 24px; }\n.text-panel p:first-of-type::first-letter { font-size: var(--wp--preset--font-size--drop-cap-size); }",
+	  "elements": {
+		  "h1": {
+			"typography": {
+			  "fontFamily": "var(--wp--preset--font-family--inter)",
+			  "fontWeight": "bold",
+			  "fontSize": "24pt)"
+			},
+			"color": {
+			  "text": "var(--wp--preset--color--text-color)"
+			}
+		  },
+		  "h2": {
+			"typography": {
+			  "fontFamily": "var(--wp--preset--font-family--inter)",
+			  "fontWeight": "bold",
+			  "fontSize": "18pt"
+			},
+			"color": {
+			  "text": "var(--wp--preset--color--light-text)"
+			}
+		},
+		"h4": {
+			"typography": {
+			  "fontFamily": "Ancnut Antique",
+			  "fontStyle": "italic",
+			  "fontWeight": "light",
+			  "fontSize": "var(--wp--preset--font-size--h2-size)"
+			},
+			"color": {
+			  "text": "var(--wp--preset--color--text-color)"
+			}
+		  },
+		"button": {
+		  "color": {
+			"text": "white",
+			"background": "#F55E32"
+			},
+		  "typography": {
+			"fontSize":"24px",
+			"fontWeight": "bold"
+		   },
+		  "spacing": {
+			"padding": {
+			  "top": "10px",
+			  "right": "40px",
+			  "bottom": "10px",
+			  "left": "40px"
+			},
+			"margin": {
+			  "top": "20px",
+			  "bottom": "20px"
+		  		}
+			 }
+		 }
+	  },
+	  "blocks": {
+		"core/group": {
+			"layout": {
+				"contentSize": "100%",
+				"wideSize": "100%"
+			  }
+			}
+		  }
+		}
+,
+	"templateParts": [
+    {
+      "name": "header",
+      "title": "Nagłówek",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Stopka",
+      "area": "footer"
+    },
+	{
+		"name": "page",
+		"title": "Page",
+		"area": "page"
+	  }
+  	]
+  }
