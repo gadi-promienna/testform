@@ -8,15 +8,19 @@
  * Inserter: yes
  */
  
+ /**
+  * Function that uses the FormBuilder to create a simple form.
+  * It creates a form with three fields: name, email, and description.
+  */
  function render_form() {
     $formBuilder = new \FormCreator\SimpleFormBuilder();
      $formBuilder->setConfiguration([
-         "action" => ""
+         "action" => "/wp-json/testform/v1/",
      ]);
  
-     $formBuilder->addTextField("name", "Name", ["required"=> true]);
+     $formBuilder->addTextField("name", "Imię", ["required"=> true]);
      $formBuilder->addEmailField("email", "Email", ["required"=> true]);
-     $formBuilder->addTextareaField("description", "Description", ["required"=> true]);
+     $formBuilder->addTextareaField("description", "Opis", ["required"=> true]);
      $form = $formBuilder->build();
      $form->render();
  }
