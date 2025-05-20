@@ -7,7 +7,16 @@ Requires PHP: 5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Instalation ==
+== Opis ==
+
+Powyższy motyw wordpress zawiera statayczną stronę główną pokazującą zastosowanie dynamicznego formularza.
+
+== Instrukcja uruchumienia ==
+
+1. Umieść folder z motywem w katalogu motywów /wp-content/themes w zainstalowanej witrynie wordpressa.
+2. Aktywuj motyw Testform Theme
+3. Ustaw statyczną stronę jako stronę główną
+4. Odśwież witrynę
 
 == Changelog ==
 
