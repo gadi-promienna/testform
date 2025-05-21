@@ -9,6 +9,7 @@ add_action('rest_api_init', function() {
 );
 
 function testform_form_callback(WP_REST_Request $request) {
+    // Todo validacja nonce
     $params = $request->get_json_params(); 
     $name = sanitize_text_field($params['name'] ?? '');
     $email = sanitize_email($params['email'] ?? '');
