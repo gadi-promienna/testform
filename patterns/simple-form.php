@@ -15,7 +15,7 @@
  function render_form() {
     $formBuilder = new \FormCreator\SimpleFormBuilder();
      $formBuilder->setConfiguration([
-         "action" => "/wp-json/testform/v1/",
+         "action" => "/wp-json/testform/v1/submit",
      ]);
  
      $formBuilder->addTextField("name", "Imię", ["required"=> true,"class"=> "simple-form__name"]);

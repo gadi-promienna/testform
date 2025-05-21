@@ -18,7 +18,7 @@ function include_testform_files() {
     require_once get_template_directory() . '/src/form-creator/fields/TextareaField.php';
     require_once get_template_directory() . '/src/form-creator/SimpleFormBuilder.php';
     require_once get_template_directory() . '/src/form-creator/SimpleForm.php';
- //   require_once get_template_directory() . '/api.php';
+    require_once get_template_directory() . '/api.php';
 }
 
 add_action('wp_enqueue_scripts', 'load_custom_css');
