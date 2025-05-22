@@ -25,6 +25,7 @@ class SimpleForm
     {
         ?>
         <form action="<?php echo($this->action) ?>" method='post'>
+             <?php wp_nonce_field('wp_rest'); ?>
              <?php foreach($this->inputFields as $field) {
                  $field->render(); }
               ?>

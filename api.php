@@ -9,7 +9,11 @@ add_action('rest_api_init', function() {
 );
 
 function testform_form_callback(WP_REST_Request $request) {
-    // Todo validacja nonce
+    if ( ! wp_verify_nonce(wp_unslash($request['_wpnonce']),
+        'wp_rest'
+    )) {
+        return;
+    }
     $name = sanitize_text_field($request['name'] ?? '');
     $email = sanitize_email($request['email'] ?? '');
     $description = sanitize_textarea_field($request['email']['description'] ?? '');
@@ -19,7 +23,6 @@ function testform_form_callback(WP_REST_Request $request) {
                 'message' => 'Pole imię i email są wymagane'
             ], 200);
     }
-
 
     if (strlen($name) < 3 || strlen($name) > 50) {
          return new WP_REST_Response([
