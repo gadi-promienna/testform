@@ -10,10 +10,9 @@ add_action('rest_api_init', function() {
 
 function testform_form_callback(WP_REST_Request $request) {
     // Todo validacja nonce
-    $params = $request->get_json_params(); 
-    $name = sanitize_text_field($params['name'] ?? '');
-    $email = sanitize_email($params['email'] ?? '');
-    $description = sanitize_textarea_field($params['description'] ?? '');
+    $name = sanitize_text_field($request['name'] ?? '');
+    $email = sanitize_email($request['email'] ?? '');
+    $description = sanitize_textarea_field($request['email']['description'] ?? '');
      if (empty($email) ) {
          return new WP_REST_Response([
                 'success' => false,
@@ -21,7 +20,8 @@ function testform_form_callback(WP_REST_Request $request) {
             ], 200);
     }
 
-    if ($name.length() < 3 || $name.length() > 50) {
+
+    if (strlen($name) < 3 || strlen($name) > 50) {
          return new WP_REST_Response([
                 'success' => false,
                 'message' => 'Imie musi mieć od 3 do 50 znakow'
@@ -35,7 +35,7 @@ function testform_form_callback(WP_REST_Request $request) {
                 ], 200);
     }
 
-    if ($description.length() > 500) {
+    if (strlen($description) > 500) {
          return new WP_REST_Response([
                 'success' => false,
                 'message' => 'Prosze podac opis w odpowiednim formacie'
