@@ -8,45 +8,58 @@ add_action('rest_api_init', function() {
  }
 );
 
+/**
+ * Callback function for the REST API endpoint to handle form submission that was sent to testform/v1/sumbmit endpoint.
+ * It processes the form data, validates it, and sets notifications or errors as needed.
+ * @param WP_REST_Request $request The request object containing form data: wpnonce, email, description.
+ * @return void
+ */
 function testform_form_callback(WP_REST_Request $request) {
+    $errors = [];
+    $notifications = get_transient('testform_notifications') ?? [];
     if ( ! wp_verify_nonce(wp_unslash($request['_wpnonce']),
         'wp_rest'
     )) {
-        return;
+        $errors[] = [
+            'message' => 'Problem z wysłaniem formularza. Proszę spróbować ponownie.'
+        ];
     }
     $name = sanitize_text_field($request['name'] ?? '');
     $email = sanitize_email($request['email'] ?? '');
     $description = sanitize_textarea_field($request['email']['description'] ?? '');
-     if (empty($email) ) {
-         return new WP_REST_Response([
-                'success' => false,
-                'message' => 'Pole imię i email są wymagane'
-            ], 200);
-    }
+    if (empty($email) ) {
+            $errors[] = [
+                'message' => 'Pole email jest wymagane'
+            ];}
+    elseif (!is_email($email)) {
+        $errors[] = [
+                'message' => 'Prosze podac poprawny adres email'
+            ];}
 
-    if (strlen($name) < 3 || strlen($name) > 50) {
-         return new WP_REST_Response([
-                'success' => false,
+    if (empty($name) ) {
+            $errors[] = [
+                'message' => 'Pole imie jest wymagane'
+            ];}
+    elseif (strlen($name) < 3 || strlen($name) > 50) {
+            $errors[] = [
                 'message' => 'Imie musi mieć od 3 do 50 znakow'
-            ], 200);
-    } 
-
-    if (!is_email($email)) {
-            return new WP_REST_Response([
-                    'success' => false,
-                    'message' => 'Prosze podac poprawny adres email'
-                ], 200);
-    }
+            ];} 
 
     if (strlen($description) > 500) {
-         return new WP_REST_Response([
-                'success' => false,
+            $errors[] = [
                 'message' => 'Prosze podac opis w odpowiednim formacie'
-            ], 200);
+            ];
     }
 
-    return new WP_REST_Response([
-                'success' => true,
-                'message' => 'Dziękujemy za wysłanie formularza!'
-            ], 200);
+    if (count($errors) > 0) {
+        set_transient('simpleform_errors', $errors, 300); 
+    } else {
+        $notifications[] = [
+                'title' => 'Sukces',
+                 'message' => 'Dziękujemy za wysłanie formularza!'
+            ];
+            set_transient('testform_notifications', $notifications, 300);
+    }
+    wp_redirect(home_url('/'));
+    exit;
 }
