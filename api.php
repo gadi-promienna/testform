@@ -33,21 +33,21 @@ function testform_form_callback(WP_REST_Request $request) {
             ];}
     elseif (!is_email($email)) {
         $errors[] = [
-                'message' => 'Prosze podac poprawny adres email'
+                'message' => 'Proszę podać poprawny adres email'
             ];}
 
     if (empty($name) ) {
             $errors[] = [
-                'message' => 'Pole imie jest wymagane'
+                'message' => 'Pole imię jest wymagane'
             ];}
     elseif (strlen($name) < 3 || strlen($name) > 50) {
             $errors[] = [
-                'message' => 'Imie musi mieć od 3 do 50 znakow'
+                'message' => 'Imię musi mieć od 3 do 50 znakow'
             ];} 
 
     if (strlen($description) > 500) {
             $errors[] = [
-                'message' => 'Prosze podac opis w odpowiednim formacie'
+                'message' => 'Proszę podać opis w odpowiednim formacie'
             ];
     }
 

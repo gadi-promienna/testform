@@ -32,14 +32,14 @@ function render_form() {
   * It retrieves the errors from a transient and displays them in a notification bar.
   */
 function display_errors($errors) {
-    ?><div class="errors-log"><?php
+    ?><div class="simpleform-errors"><?php
      foreach ($errors as $error) {
          echo '<div class="error-message">';
          echo '<p>' . esc_html($error['message']) . '</p>';
          echo '</div>';
      }
       ?></div><?php
-    delete_transient('testform_errors');
+    delete_transient('simpleform_errors');
 }
 
 render_form();

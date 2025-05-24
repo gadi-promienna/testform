@@ -12,14 +12,14 @@
  $notifications = get_transient('testform_notifications');
 
  if ($notifications) {
-     echo '<div class="notification-bar">';
+     echo '<div class="testform-notifications">';
      foreach ($notifications as $notification) {
-        var_dump($notification);
          echo '<div class="notification-item">';
-         echo '<h3>' . esc_html($notification['title']) . '</h3>';
+         echo '<h3><span class="succes-icon">✔️</span>' . esc_html($notification['title']) . '</h3>';
          echo '<p>' . esc_html($notification['message']) . '</p>';
          echo '</div>';
      }
      echo '</div>';
+     delete_transient('testform_notifications');
  }
  ?>
