@@ -1,11 +1,8 @@
 <?php
 namespace Tests;
 // Include the necessary files for the test
+use Brain\Monkey;
 
-use WordPress\Plugin\Hooks;
-use Tests\TestCase;
-//use FormCreator\SimpleFormBuilder;
-//TODO: Change paths to relative
 require_once "/var/www/html/wp-content/themes/testform/src/form-creator/FormBuilder.php";
 require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/BaseField.php";
 require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/EmailField.php";
@@ -18,15 +15,18 @@ require_once "/var/www/html/wp-content/themes/testform/src/form-creator/SimpleFo
 class SimpleFormBuilderTest extends TestCase
 {
 
+    /**
+     * Test Function to check if simple form builder generates correct Simple Form
+     */
     public function test_simple_form_builder_create_correct_form()
     {
         
-
-        ob_start();
-        $form_builder = new \FormCreator\SimpleFormBuilder();
-        $form_builder->setConfiguration([
-         "action" => "/form.php",
-        ]);
+     Monkey\Functions\when('wp_nonce_field')->justReturn('mock_nonce');
+     ob_start();
+     $form_builder = new \FormCreator\SimpleFormBuilder();
+     $form_builder->setConfiguration([
+        "action" => "/form.php",
+    ]);   
     $form_builder->addTextField("name", "Imię");
     $form_builder->addEmailField("email", "Email");
     $form_builder->addTextareaField("description", "Opis");
