@@ -1,5 +1,8 @@
 <?php
 namespace FormCreator;
+use FormCreator\Fields\EmailField;
+use FormCreator\Fields\TextField;
+use FormCreator\Fields\TextareaField;
 
 class FormBuilder 
 {

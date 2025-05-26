@@ -1,6 +1,5 @@
 <?php
-namespace FormCreator;
-use FormCreator;
+namespace FormCreator\Fields;
 
 class TextareaField extends BaseField
 {

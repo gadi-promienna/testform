@@ -9,7 +9,9 @@
     },
     "autoload": {
         "psr-4": {
-            "FormCreator\\": "src/"
+            "FormCreator\\": "src/form-creator/",
+            "FormCreator\\Fields\\": "src/form-creator/fields/"
+            
         }
     },
     "autoload-dev": {

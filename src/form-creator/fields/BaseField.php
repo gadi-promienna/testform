@@ -1,5 +1,5 @@
 <?php
-namespace FormCreator;
+namespace FormCreator\Fields;
 
 class BaseField
 {

@@ -18,6 +18,12 @@ Powyższy motyw wordpress zawiera statayczną stronę główną pokazującą zas
 3. Ustaw statyczną stronę jako stronę główną
 4. Odśwież witrynę
 
+== Instrukcja testowania ==
+
+1. Wejdź do głównego folderu motywu i wpisz w konsoli polecenie:
+"composer install"
+2. Uruchom testy poleceniem: "./vendor/bin/phpunit"
+
 == Changelog ==
 
 = 1.0.0 =

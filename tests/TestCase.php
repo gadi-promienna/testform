@@ -1,7 +1,5 @@
 <?php
-
 namespace Tests;
-
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Brain\Monkey;
 

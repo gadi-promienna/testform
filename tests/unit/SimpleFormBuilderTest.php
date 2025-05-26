@@ -1,16 +1,8 @@
 <?php
 namespace Tests;
-// Include the necessary files for the test
 use Brain\Monkey;
-
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/FormBuilder.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/BaseField.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/EmailField.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/TextField.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/fields/TextareaField.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/SimpleForm.php";
-require_once "/var/www/html/wp-content/themes/testform/src/form-creator/SimpleFormBuilder.php";
-
+use Tests\TestCase;
+use FormCreator;
 
 class SimpleFormBuilderTest extends TestCase
 {
