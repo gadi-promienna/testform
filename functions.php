@@ -1,6 +1,14 @@
 <?php 
 
 /**
+ * TestForm Theme Functions
+ *
+ * This file contains functions to enqueue styles and include necessary files for the TestForm theme.
+ *
+ * @package TestForm
+ */
+
+/**
  * Enqueue custom CSS for the theme
  */
 function load_custom_css() {

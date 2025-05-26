@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Testform\\": "src/"
+            "FormCreator\\": "src/"
         }
     },
     "autoload-dev": {
